@@ -42,6 +42,7 @@ class NumberFormatDecoratorTest extends TestCase
         $num = Number::fromNumber(self::A_NEGATIVE_INT_WITH_HALF_DECIMAL);
         $round = Number::fromNumber(self::A_HALF_POSITIVE_ROUNDING);
         $num_format = new NumberFormatDecorator($num);
-        dump($num_format->roundedNumber($round));
+        // WTF
+        $this->assertTrue(Number::fromNumber(-5.4)->equal($num_format->roundedNumber($round)));
     }
 }
