@@ -43,5 +43,6 @@ class NumberFormatDecoratorTest extends TestCase
         $round = Number::fromNumber(self::A_HALF_POSITIVE_ROUNDING);
         $num_format = new NumberFormatDecorator($num);
         dump($num_format->roundedNumber($round));
+        dump('test');
     }
 }
