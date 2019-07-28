@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace WeDev\Price\Domain;
 
-final class Currency implements \JsonSerializable
+final class Currency
 {
     private $code;
+    private $hash;
 
     public function __construct(string $code)
     {
@@ -37,12 +38,7 @@ final class Currency implements \JsonSerializable
         return $this->code;
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @return string
-     */
-    public function jsonSerialize()
+    public function __invoke()
     {
         return $this->code;
     }
