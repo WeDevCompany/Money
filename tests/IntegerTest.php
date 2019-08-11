@@ -1,6 +1,6 @@
 <?php
 
-namespace WeDev\Price\Tests;
+namespace WeDev\Price\tests;
 
 use PHPUnit\Framework\TestCase;
 use WeDev\Price\Domain\Integer;
