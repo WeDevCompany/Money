@@ -1,6 +1,6 @@
 <?php
 
-namespace WeDev\Price\Tests;
+namespace WeDev\Price\tests;
 
 use PHPUnit\Framework\TestCase;
 use WeDev\Price\Domain\CurrencyCodeISO4217;
@@ -191,7 +191,7 @@ class CurrencyCodeISO4217Test extends TestCase
     /**
      * @test
      */
-    public function shouldrCeateACurrencyCodeIso4217From()
+    public function it_creates_a_curency_code_with_iso_4217()
     {
         foreach (self::REAL_CURRENCY as $value) {
             $currency_code = new CurrencyCodeISO4217($value);
