@@ -1,6 +1,6 @@
 <?php
 
-namespace WeDev\Price\tests;
+namespace WeDev\Price\Tests;
 
 use PHPUnit\Framework\TestCase;
 use WeDev\Price\Domain\Decimal;
