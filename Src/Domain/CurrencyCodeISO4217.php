@@ -6,15 +6,20 @@ namespace WeDev\Price\Domain;
 
 use WeDev\Price\Domain\Exception\CurrencyCodeISO4217InvalidArgument;
 
-class CurrencyCodeISO4217 implements CurrencyCodeISO4217Interface
+class CurrencyCodeISO4217
 {
     private const VALIDATOR_REGEX = '/^[A-Z]{3}$/m';
 
     private $code;
 
-    public function __construct(string $code)
+    private function __construct(string $code)
     {
         $this->setCode($code);
+    }
+
+    public static function fromIsoCode(string $code): self
+    {
+        return new self($code);
     }
 
     private function setCode(string $code): void

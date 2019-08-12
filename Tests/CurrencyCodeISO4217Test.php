@@ -194,7 +194,7 @@ class CurrencyCodeISO4217Test extends TestCase
     public function it_creates_a_currency_code_with_iso_4217()
     {
         foreach (self::REAL_CURRENCY as $value) {
-            $currency_code = new CurrencyCodeISO4217($value);
+            $currency_code = CurrencyCodeISO4217::fromIsoCode($value);
             $this->assertTrue($currency_code instanceof CurrencyCodeISO4217);
         }
     }

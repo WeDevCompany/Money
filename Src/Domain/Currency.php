@@ -6,40 +6,30 @@ namespace WeDev\Price\Domain;
 
 final class Currency
 {
-    private $code;
-    private $hash;
+    private $isoCode;
 
-    public function __construct(string $code)
+    private function __construct(CurrencyCodeISO4217 $isoCode)
     {
-        if ('' === $code) {
-            throw new \InvalidArgumentException('Currency code should not be empty string');
-        }
+        $this->isoCode = $isoCode;
+    }
 
-        $this->code = $code;
+    public static function fromIsoCode(string $isoCode): self
+    {
+        return new self(CurrencyCodeISO4217::fromIsoCode($isoCode));
     }
 
     public function getCode(): string
     {
-        return $this->code;
+        return $this->isoCode->__toString();
     }
 
     public function equals(Currency $other): bool
     {
-        return $this->code === $other->code;
-    }
-
-    public function isAvailableWithin(Currencies $currencies): bool
-    {
-        return $currencies->contains($this);
+        return $this->getCode() === $other->getCode();
     }
 
     public function __toString(): string
     {
-        return $this->code;
-    }
-
-    public function __invoke()
-    {
-        return $this->code;
+        return $this->getCode();
     }
 }
