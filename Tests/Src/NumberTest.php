@@ -3,7 +3,7 @@
 namespace WeDev\Price\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WeDev\Price\Domain\Exception\NumberInvalidArgument;
+use WeDev\Price\Domain\Exceptions\NumberInvalidArgument;
 use WeDev\Price\Domain\Number;
 
 class NumberTest extends TestCase

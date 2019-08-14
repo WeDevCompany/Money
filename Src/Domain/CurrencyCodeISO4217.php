@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WeDev\Price\Domain;
 
-use WeDev\Price\Domain\Exception\CurrencyCodeISO4217InvalidArgument;
+use WeDev\Price\Domain\Exceptions\CurrencyCodeISO4217InvalidArgument;
 
 class CurrencyCodeISO4217
 {

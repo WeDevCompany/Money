@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WeDev\Price\Domain;
 
-use WeDev\Price\Domain\Exception\IntegerInvalidArgument;
+use WeDev\Price\Domain\Exceptions\IntegerInvalidArgument;
 
 class Integer implements IntegerInterface
 {
@@ -58,6 +58,7 @@ class Integer implements IntegerInterface
         if (self::EMPTY_STRING === $integer) {
             return true;
         }
+
         return false;
     }
 
@@ -69,7 +70,7 @@ class Integer implements IntegerInterface
             $integer = ltrim($integer, self::ZERO_STRING);
         }
 
-        if (preg_match(self::SIGN_REGEX, $integer) && strlen($integer) == 1) {
+        if (preg_match(self::SIGN_REGEX, $integer) && 1 == strlen($integer)) {
             $integer = $integer[0] . self::ZERO_STRING;
         }
 

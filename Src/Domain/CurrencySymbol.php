@@ -2,7 +2,7 @@
 
 namespace WeDev\Price\Domain;
 
-use WeDev\Price\Domain\Exception\SymbolInvalidArgument;
+use WeDev\Price\Domain\Exceptions\SymbolInvalidArgument;
 
 class CurrencySymbol
 {
