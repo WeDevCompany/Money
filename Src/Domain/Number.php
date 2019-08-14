@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WeDev\Price\Domain;
 
-use WeDev\Price\Domain\Exception\NumberInvalidArgument;
+use WeDev\Price\Domain\Exceptions\NumberInvalidArgument;
 
 final class Number
 {

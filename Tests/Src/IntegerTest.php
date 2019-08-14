@@ -4,7 +4,7 @@ namespace WeDev\Price\Tests;
 
 use PHPUnit\Framework\TestCase;
 use WeDev\Price\Domain\Integer;
-use WeDev\Price\Domain\Exception\IntegerInvalidArgument;
+use WeDev\Price\Domain\Exceptions\IntegerInvalidArgument;
 
 class IntegerTest extends TestCase
 {

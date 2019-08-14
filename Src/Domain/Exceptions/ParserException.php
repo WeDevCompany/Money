@@ -1,6 +1,6 @@
 <?php
 
-namespace WeDev\Price\Domain\Exception;
+namespace WeDev\Price\Domain\Exceptions;
 
 final class ParserException extends \RuntimeException
 {

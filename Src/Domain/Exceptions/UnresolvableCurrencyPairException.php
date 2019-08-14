@@ -1,6 +1,6 @@
 <?php
 
-namespace WeDev\Price\Domain\Exception;
+namespace WeDev\Price\Domain\Exceptions;
 
 use WeDev\Price\Domain\Currency;
 

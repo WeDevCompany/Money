@@ -4,7 +4,7 @@ namespace WeDev\Price\Tests;
 
 use PHPUnit\Framework\TestCase;
 use WeDev\Price\Domain\Decimal;
-use WeDev\Price\Domain\Exception\DecimalInvalidArgument;
+use WeDev\Price\Domain\Exceptions\DecimalInvalidArgument;
 
 class DecimalTest extends TestCase
 {
