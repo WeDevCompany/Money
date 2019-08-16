@@ -17,18 +17,27 @@ class CurrencyFileLoader implements CurrencyFileLoaderInterface
     /**
      * CurrencyFileLoader constructor.
      *
-     * @param FileHelper|null $file_helper
+     * @param string $data_file
      */
-    public function __construct(?FileHelper $file_helper)
+    public function __construct(?string $data_file = null)
     {
-        $this->file_helper = ($file_helper) ? $file_helper : new FileHelper();
-        $this->data_file = $this->file_helper->buildPath(__DIR__, '..', '..', 'Data', self::DATA_FILE);
+        $this->file_helper = new FileHelper();
+        $this->setDataFile($data_file);
     }
 
     public function getCurrency(): Map
     {
-        $this->file_helper->checkFileExists($this->data_file);
+        $this->file_helper->validateFile($this->data_file);
 
-        return new \Ds\Map(include_once($this->data_file));
+        return new \Ds\Map(require($this->data_file));
+    }
+
+    private function setDataFile(?string $data_file): void
+    {
+        if (empty($data_file)) {
+            $data_file = $this->file_helper->buildPath(__DIR__, '..', '..', 'Data', self::DATA_FILE);
+        }
+        //dump($data_file);
+        $this->data_file = $data_file;
     }
 }

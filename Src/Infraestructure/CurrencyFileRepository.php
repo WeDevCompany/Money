@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace WeDev\Price\Infraestructure;
 
 use WeDev\Price\Domain\Currency;
-use Ds\Map;
 
-class CurrencyFileRepository implements CurrenciesRepository
+class CurrencyFileRepository implements CurrenciesRepositoryInterface
 {
     private $currency_list;
 
@@ -15,7 +14,7 @@ class CurrencyFileRepository implements CurrenciesRepository
     {
     }
 
-    public function getAll(): Map
+    public function getAll()
     {
         // TODO: Implement getAll() method.
     }

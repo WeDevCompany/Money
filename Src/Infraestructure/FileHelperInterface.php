@@ -31,7 +31,9 @@ interface FileHelperInterface
      *
      * @param string $file
      *
+     * @return bool
+     *
      * @throws FileNotFoundException
      */
-    public function checkFileExists(string $file);
+    public function validateFile(string $file): bool;
 }
