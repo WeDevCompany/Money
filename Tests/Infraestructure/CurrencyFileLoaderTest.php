@@ -67,7 +67,7 @@ class CurrencyFileLoaderTest extends TestCase
     private static function createFile(): void
     {
         if (!file_exists(self::FAKE_FILE)) {
-            file_put_contents(self::FAKE_FILE, time());
+            file_put_contents(self::FAKE_FILE, '');
         }
     }
 

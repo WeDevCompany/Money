@@ -11,7 +11,6 @@ use WeDev\Price\Infraestructure\FileHelper;
 class FileHelperTest extends TestCase
 {
     private const TESTING_FOLDER_EXPECTED = '../../test';
-    private const PARENT_FOLDER_EXPECTED = '..' . DIRECTORY_SEPARATOR;
     private $file_helper;
 
     public function setUp()
@@ -22,14 +21,6 @@ class FileHelperTest extends TestCase
     public function tearDown()
     {
         $this->file_helper = null;
-    }
-
-    /**
-     * @test
-     */
-    public function it_returns_dynamic_parent_folder()
-    {
-        $this->assertTrue(self::PARENT_FOLDER_EXPECTED === $this->file_helper->parentFolder());
     }
 
     /**

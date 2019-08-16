@@ -37,7 +37,6 @@ class CurrencyFileLoader implements CurrencyFileLoaderInterface
         if (empty($data_file)) {
             $data_file = $this->file_helper->buildPath(__DIR__, '..', '..', 'Data', self::DATA_FILE);
         }
-        //dump($data_file);
         $this->data_file = $data_file;
     }
 }
