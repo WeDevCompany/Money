@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WeDev\Price\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -148,7 +150,7 @@ class IntegerTest extends TestCase
      */
     public function shouldNotCreateANumericIntegerFromAWellFormattedNumericInteger()
     {
-        $integer = Integer::fromString(self::A_WELL_FORMATTED_NUMERIC_INTEGER);
+        $integer = Integer::fromString((string) self::A_WELL_FORMATTED_NUMERIC_INTEGER);
         $this->assertFalse(self::A_WELL_FORMATTED_NUMERIC_INTEGER === $integer->getInteger());
     }
 
@@ -157,7 +159,7 @@ class IntegerTest extends TestCase
      */
     public function shouldCreateAnIntegerStringFromAWellFormattedRealInteger()
     {
-        $integer = Integer::fromString(self::A_WELL_FORMATTED_NUMERIC_INTEGER);
+        $integer = Integer::fromString((string) self::A_WELL_FORMATTED_NUMERIC_INTEGER);
         $this->assertTrue((string) self::A_WELL_FORMATTED_NUMERIC_INTEGER === $integer->getInteger());
     }
 

@@ -6,24 +6,20 @@ namespace WeDev\Price\Infraestructure;
 
 use WeDev\Price\Infraestructure\Exceptions\FileNotFoundException;
 
-class FileHelper implements FileHelperInterface
+class ErrorFileHelper implements FileHelperInterface
 {
     public function parentFolder(): string
     {
-        return '..' . DIRECTORY_SEPARATOR;
+        return '';
     }
 
     public function buildPath(...$folders): string
     {
-        return join(DIRECTORY_SEPARATOR, $folders);
+        return '';
     }
 
     public function validateFile(string $file): bool
     {
-        if (!is_readable($file) || !is_file($file)) {
-            throw new FileNotFoundException('the file to load the currency does not exists');
-        }
-
-        return true;
+        throw new FileNotFoundException();
     }
 }

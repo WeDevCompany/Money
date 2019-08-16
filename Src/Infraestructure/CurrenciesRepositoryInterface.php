@@ -6,9 +6,9 @@ namespace WeDev\Price\Infraestructure;
 
 use WeDev\Price\Domain\Currency;
 
-interface CurrenciesRepository
+interface CurrenciesRepositoryInterface
 {
-    public function getAll(): Ds\Map;
+    public function getAll();
 
     public function findByIsoCode4217(string $isoCode): ?Currency;
 }
