@@ -4,7 +4,7 @@ repos:
       hooks:
         - id: check-yaml
           files: \.(yaml|yml)$
-  -   repo: https://github.com/khru/pre-commit-php.git
+  -   repo: https://github.com/WeDevCompany/pre-commit-php.git
       rev: master
       hooks:
         - id: php-lint-all
