@@ -562,4 +562,48 @@ class NumberTest extends TestCase
         $number_a = Number::fromNumber(self::A_NEGATIVE_DECIMAL_NUMBER_BIGGER_THAN_HALF_STRING);
         $this->assertTrue($number_a->isCloserToNext());
     }
+
+    /**
+    * @test
+    */
+    public function shouldBeAddedNumber()
+    {
+        $number_a = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER + self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_b = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_c = $number_b->add(self::A_POSITIVE_DECIMAL_NUMBER);
+        $this->assertTrue($number_a->equals($number_c));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldBeSubstractNumber()
+    {
+        $number_a = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER - self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_b = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_c = $number_b->substract(self::A_POSITIVE_DECIMAL_NUMBER);
+        $this->assertTrue($number_a->equals($number_c));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldBeMultiplyNumber()
+    {
+        $number_a = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER * self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_b = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_c = $number_b->multiply(self::A_POSITIVE_DECIMAL_NUMBER);
+        $this->assertTrue($number_a->equals($number_c));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldBeDivideNumber()
+    {
+        $number_a = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER / self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_b = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER);
+        $number_c = $number_b->divide(self::A_POSITIVE_DECIMAL_NUMBER);
+        $this->assertTrue($number_a->equals($number_c));
+    }
 }

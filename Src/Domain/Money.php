@@ -22,7 +22,39 @@ class Money
 
     public function getCurrency()
     {
-        return $this->number;
+        return $this->currency;
+    }
+
+    public function increaseAmountBy($amount)
+    {
+        return new self(
+            $this->getNumber()->add($amount),
+            $this->getCurrency()
+        );
+    }
+
+    public function decreaseAmountBy($amount)
+    {
+        return new self(
+            $this->getNumber()->substract($amount),
+            $this->getCurrency()
+        );
+    }
+
+    public function multiplyAmountBy($amount)
+    {
+        return new self(
+            $this->getNumber()->multiply($amount),
+            $this->getCurrency()
+        );
+    }
+
+    public function divideAmountBy($amount)
+    {
+        return new self(
+            $this->getNumber()->divide($amount),
+            $this->getCurrency()
+        );
     }
 
     public function equals(self $money)

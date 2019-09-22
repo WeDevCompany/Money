@@ -157,4 +157,24 @@ final class Number
             throw new NumberInvalidArgument('An empty number is invalid');
         }
     }
+
+    public function add($amount): self
+    {
+        return $this->fromNumber($this->toFloat() + $amount);
+    }
+
+    public function substract($amount): self
+    {
+        return $this->fromNumber($this->toFloat() - $amount);
+    }
+
+    public function multiply($amount): self
+    {
+        return $this->fromNumber($this->toFloat() * $amount);
+    }
+
+    public function divide($amount): self
+    {
+        return $this->fromNumber($this->toFloat() / $amount);
+    }
 }
