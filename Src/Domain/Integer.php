@@ -6,7 +6,7 @@ namespace WeDev\Price\Domain;
 
 use WeDev\Price\Domain\Exceptions\IntegerInvalidArgument;
 
-class Integer implements IntegerInterface
+class Integer implements NumericPartInterface, IntegerInterface
 {
     private $integer;
 

@@ -15,6 +15,14 @@ class Money
         $this->currency = $currency;
     }
 
+    public static function fromMoney(Number $number): self
+    {
+        return new self (
+            $number,
+            Currency::fromIsoCode(Constants::DEFAULT_CURRENCY)
+        );
+    }
+
     public function getNumber()
     {
         return $this->number;
@@ -55,6 +63,12 @@ class Money
             $this->getNumber()->divide($amount),
             $this->getCurrency()
         );
+    }
+
+    public function __toString()
+    {
+        return 'Number=' . $this->getNumber().__toString()
+            . ", Currency=" . $this->getCurrency().__toString();
     }
 
     public function equals(self $money)
