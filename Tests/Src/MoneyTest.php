@@ -6,12 +6,23 @@ use PHPUnit\Framework\TestCase;
 use WeDev\Price\Domain\Currency;
 use WeDev\Price\Domain\Number;
 use WeDev\Price\Domain\Money;
+use WeDev\Price\Domain\Constants;
 
 
 class MoneyTest extends TestCase
 {
     private const A_POSITIVE_DECIMAL_NUMBER = 1.5;
     private const A_USD_ISO_CODE = 'USD';
+
+    /**
+     * @test
+     */
+    public function shouldBeCreateWithDefaultCurrency()
+    {
+        $number_a = Number::fromNumber(self::A_POSITIVE_DECIMAL_NUMBER);
+        $money_a = Money::fromMoney($number_a);
+        $this->assertTrue($money_a->getCurrency()->getCode() === Constants::DEFAULT_CURRENCY);
+    }
 
     /**
      * @test
