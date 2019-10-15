@@ -25,7 +25,7 @@ class CurrencyCodeISO4217
     private function setCode(string $code): void
     {
         if (!$this->validCurrencyCode($code)) {
-            new CurrencyCodeISO4217InvalidArgument('The currency code with ISO4217 is not well formatted');
+            throw new CurrencyCodeISO4217InvalidArgument('The currency code with ISO4217 is not well formatted');
         }
         $this->code = $code;
     }

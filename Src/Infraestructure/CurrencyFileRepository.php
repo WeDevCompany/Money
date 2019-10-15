@@ -12,6 +12,7 @@ class CurrencyFileRepository implements CurrenciesRepositoryInterface
 
     public function __construct()
     {
+        $this->currency_list = (new CurrencyFileLoader(null))->getCurrency();
     }
 
     public function getAll()

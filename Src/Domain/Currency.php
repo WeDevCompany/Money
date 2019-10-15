@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WeDev\Price\Domain;
 
-final class Currency
+final class Currency implements \JsonSerializable
 {
     private $isoCode;
 
@@ -31,5 +31,10 @@ final class Currency
     public function __toString(): string
     {
         return $this->getCode();
+    }
+
+    public function jsonSerialize()
+    {
+        return json_encode($this->__toString());
     }
 }
