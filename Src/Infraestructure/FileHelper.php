@@ -19,7 +19,7 @@ class FileHelper
             throw new FileNotFoundException('The file to load the currency does not exists');
         }
 
-        if (empty(file_get_contents($file)) || !$this->validateCurrencyFile($file)) {
+        if (empty(file_get_contents($file))) {
             throw new \InvalidArgumentException('The file to load the currency does not exists is empty');
         }
 
@@ -29,7 +29,7 @@ class FileHelper
     public function requireToVar($file)
     {
         ob_start();
-        require $file;
+        require_once $file;
 
         return ob_get_clean();
     }
