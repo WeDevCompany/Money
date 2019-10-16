@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WeDev\Price\Infraestructure;
 
-use Ds\Map;
+use WeDev\Price\Domain\Currency;
 
 class CurrencyFileLoader implements CurrencyFileLoaderInterface
 {
@@ -25,11 +25,16 @@ class CurrencyFileLoader implements CurrencyFileLoaderInterface
         $this->setDataFile($data_file);
     }
 
-    public function getCurrency(): Map
+    public function getCurrency(): CurrencyCollection
     {
         $this->file_helper->validateFile($this->data_file);
+        $this->validateCurrencyFile($this->data_file);
+        $currency_list = [];
+        foreach (require($this->data_file) as $iso_code) {
+            array_push($currency_list, Currency::fromIsoCode($iso_code['code']));
+        }
 
-        return new \Ds\Map(require($this->data_file));
+        return CurrencyCollection::fromArray($currency_list);
     }
 
     private function setDataFile(?string $data_file): void
@@ -38,5 +43,13 @@ class CurrencyFileLoader implements CurrencyFileLoaderInterface
             $data_file = $this->file_helper->buildPath(__DIR__, '..', '..', 'Data', self::DATA_FILE);
         }
         $this->data_file = $data_file;
+    }
+
+    private function validateCurrencyFile(string $file)
+    {
+        $data = $this->file_helper->requireToVar($file);
+        if (empty($data)) {
+            throw new \InvalidArgumentException('The currency file is invalid please check it');
+        }
     }
 }

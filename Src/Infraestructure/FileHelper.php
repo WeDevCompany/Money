@@ -16,7 +16,29 @@ class FileHelper
     public function validateFile(string $file): bool
     {
         if (!is_readable($file) || !is_file($file)) {
-            throw new FileNotFoundException('the file to load the currency does not exists');
+            throw new FileNotFoundException('The file to load the currency does not exists');
+        }
+
+        if (empty(file_get_contents($file)) || !$this->validateCurrencyFile($file)) {
+            throw new \InvalidArgumentException('The file to load the currency does not exists is empty');
+        }
+
+        return true;
+    }
+
+    public function requireToVar($file)
+    {
+        ob_start();
+        require $file;
+
+        return ob_get_clean();
+    }
+
+    private function validateCurrencyFile(string $file): bool
+    {
+        $data = $this->requireToVar($file);
+        if (empty($data)) {
+            return false;
         }
 
         return true;

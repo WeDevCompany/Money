@@ -12,12 +12,17 @@ class CurrencyFileRepository implements CurrenciesRepositoryInterface
 
     public function __construct()
     {
+        $currency_list = [];
+        foreach ((new CurrencyFileLoader(null))->getCurrency() as $iso_code) {
+            array_push($currency_list, Currency::fromIsoCode($iso_code));
+        }
+
+        $list = CurrencyCollection::fromArray($currency_list);
         $this->currency_list = (new CurrencyFileLoader(null))->getCurrency();
     }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
     }
 
     public function findByIsoCode4217(string $isoCode): ?Currency

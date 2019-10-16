@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace WeDev\Price\Tests\Infraestructure;
 
 use PHPUnit\Framework\TestCase;
+use WeDev\Price\Infraestructure\CurrencyCollection;
 use WeDev\Price\Infraestructure\CurrencyFileLoader;
-use Ds\Map;
 use WeDev\Price\Infraestructure\Exceptions\FileNotFoundException;
 
 class CurrencyFileLoaderTest extends TestCase
@@ -23,7 +23,7 @@ class CurrencyFileLoaderTest extends TestCase
         self::deleteFile();
     }
 
-    private const FAKE_FILE = 'fake_file.txt';
+    private const FAKE_FILE = './fake_file.txt';
 
     /**
      * @test
@@ -52,7 +52,7 @@ class CurrencyFileLoaderTest extends TestCase
     public function it_should_load_data()
     {
         $a = new CurrencyFileLoader();
-        $this->assertInstanceOf(Map::class, $a->getCurrency());
+        $this->assertInstanceOf(CurrencyCollection::class, $a->getCurrency());
     }
 
     /**
@@ -61,7 +61,7 @@ class CurrencyFileLoaderTest extends TestCase
     public function it_should_load_data_with_null_file()
     {
         $a = new CurrencyFileLoader();
-        $this->assertInstanceOf(Map::class, $a->getCurrency());
+        $this->assertInstanceOf(CurrencyCollection::class, $a->getCurrency());
     }
 
     private static function createFile(): void
