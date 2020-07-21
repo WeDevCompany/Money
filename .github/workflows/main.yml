@@ -12,5 +12,3 @@ jobs:
         run: composer install -n --prefer-dist
       - name: Run tests
         run: ./vendor/bin/phpunit
-      - name: Psalm
-        uses: docker://vimeo/psalm-github-actions
